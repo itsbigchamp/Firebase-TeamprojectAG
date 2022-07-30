@@ -4,7 +4,7 @@ import { connectdb } from "./connectdb.js";
 export function getCeleb(req, res) {
     // connect to db
     const db = connectdb();
-    // get all docs from cars collection
+    // get all docs from celebs collection
     db.collection('celeb').get()
         .then(collection => {
              // reshape collection to array
@@ -16,11 +16,11 @@ export function getCeleb(req, res) {
 }
 
 export function createCeleb(req, res) {
-    // get a new car from request body
+    // get a new celebs from request body
     const newCeleb = req.body;
     // connect to database
     const db = connectdb();
-    // add that to cars collection
+    // add that to celebs collection
     db.collection('celeb').add(newCeleb)
         .then(doc => {
             res.status(201).send({
